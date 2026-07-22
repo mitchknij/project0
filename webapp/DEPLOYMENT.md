@@ -4,15 +4,14 @@
 
 The production site is deployed as a static Vite bundle through GitHub Pages. The workflow is [deploy-idlecloud-web.yml](../.github/workflows/deploy-idlecloud-web.yml).
 
-> GitHub Pages is unavailable for this private repository on its current GitHub plan. The workflow deliberately skips deployment while the repository is private. To use GitHub Pages, make the repository public or upgrade to a GitHub plan that supports private Pages sites. Keep the repository private and use another authenticated static host if the source must remain private.
+The repository is public and GitHub Pages is configured to use GitHub Actions as its publishing source.
 
 ## One-time repository setup
 
-1. Ensure the repository is public or on a plan that supports private Pages sites.
-2. Push this repository to GitHub on `main` or `master`.
-3. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-4. Push a change affecting `webapp/`, or run **Deploy IdleCloud Web** from the repository Actions page.
-5. Use the `github-pages` environment URL emitted by the workflow as the production URL.
+1. Push this repository to GitHub on `main` or `master`.
+2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
+3. Push a change affecting `webapp/`, or run **Deploy IdleCloud Web** from the repository Actions page.
+4. Use the `github-pages` environment URL emitted by the workflow as the production URL.
 
 The workflow runs tests before creating and uploading the static `webapp/dist` artifact. It receives the correct Vite base path from GitHub Pages, covering both project sites and root-hosted Pages sites. To override that value for a custom deployment path, run the workflow manually and set `base_path`.
 
