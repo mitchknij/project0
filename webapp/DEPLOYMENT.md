@@ -10,10 +10,11 @@ The repository is public and GitHub Pages is configured to use GitHub Actions as
 
 1. Push this repository to GitHub on `main` or `master`.
 2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-3. Push a change affecting `webapp/`, or run **Deploy IdleCloud Web** from the repository Actions page.
-4. Use the `github-pages` environment URL emitted by the workflow as the production URL.
+3. Confirm **Verify IdleCloud Web** has passed for the release commit. It runs the Vitest suite and the production TypeScript/Vite build.
+4. Run **Deploy IdleCloud Web** manually from the repository Actions page, optionally supplying a `base_path` override.
+5. Use the `github-pages` environment URL emitted by the workflow as the production URL.
 
-The workflow runs tests before creating and uploading the static `webapp/dist` artifact. It receives the correct Vite base path from GitHub Pages, covering both project sites and root-hosted Pages sites. To override that value for a custom deployment path, run the workflow manually and set `base_path`.
+The deployment workflow runs tests again before creating and uploading the static `webapp/dist` artifact. It receives the correct Vite base path from GitHub Pages, covering both project sites and root-hosted Pages sites. To override that value for a custom deployment path, run the workflow manually and set `base_path`.
 
 ## Local release gate
 

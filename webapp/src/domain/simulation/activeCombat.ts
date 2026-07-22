@@ -408,6 +408,7 @@ function resolveDueScheduledEffects(
   state: {
     simulationTick: number;
     scheduledEffects: ScheduledCombatEffect[];
+    lastScheduledEffectSequenceId: number;
     enemyHp: number;
     activeModifiers: TransientCombatModifier[];
     activeStatuses: ActiveCombatStatus[];
@@ -464,12 +465,7 @@ function resolveDueScheduledEffects(
 
       status.nextTick = status.nextTick + status.intervalTicks;
       if (status.nextTick <= status.endTick && state.enemyHp > 0) {
-        const queueState = state as {
-          simulationTick: number;
-          scheduledEffects: ScheduledCombatEffect[];
-          lastScheduledEffectSequenceId: number;
-        };
-        scheduleEffect(queueState, {
+        scheduleEffect(state, {
           delayTicks: status.intervalTicks,
           kind: "TickStatus",
           referenceId: status.instanceId,

@@ -137,7 +137,7 @@ function pushStack(target: { itemId: string; qty: number }[], itemId: string, qt
   target.push({ itemId, qty });
 }
 
-function buildDemoSnapshot(kind: ActivityKind) {
+function buildDemoSnapshot(kind: ActivityKind): Account["characters"][number]["efficiency"] {
   if (kind === "Fighting") {
     return {
       kind,
@@ -149,7 +149,7 @@ function buildDemoSnapshot(kind: ActivityKind) {
       mapDensity: 1,
       travelOverheadMs: 1200,
       survivalFactor: 0.96
-    } as const;
+    };
   }
 
   if (kind === "Mining") {
@@ -163,7 +163,7 @@ function buildDemoSnapshot(kind: ActivityKind) {
       mapDensity: 1,
       travelOverheadMs: 0,
       survivalFactor: 1
-    } as const;
+    };
   }
 
   return null;
@@ -178,7 +178,7 @@ export const useGameStore = create<GameStore>()(persist((set) => ({
   combatCanFight: true,
   assignDemoActivity: (characterId, kind) => {
     set((state) => {
-      const characters = state.account.characters.map((character) => {
+      const characters: Account["characters"] = state.account.characters.map((character) => {
         if (character.id !== characterId) return character;
 
         const snapshot = buildDemoSnapshot(kind);
@@ -197,7 +197,7 @@ export const useGameStore = create<GameStore>()(persist((set) => ({
         return {
           ...character,
           activity: {
-            kind,
+            kind: snapshot.kind,
             targetId: snapshot.targetId,
             startedAt: Date.now()
           },

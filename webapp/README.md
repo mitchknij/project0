@@ -39,4 +39,6 @@ This folder is the first migration step from Unity to browser.
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for GitHub Pages publication, the local release gate, and Unity content snapshot publication.
 
+Every browser-source change runs the **Verify IdleCloud Web** GitHub Actions workflow. It must pass its Vitest suite and production Vite build before a release is eligible for publication. The Pages workflow is manual-only, so a validated commit is not published until an explicit deployment run is requested.
+
 The simulation, save compatibility, content-boundary, deterministic replay, and static-hosting delivery path can proceed independently of Unity scenes.

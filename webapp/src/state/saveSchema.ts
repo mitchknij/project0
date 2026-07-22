@@ -19,7 +19,7 @@ interface UnityLegacyAccount {
   Characters?: UnityLegacyCharacter[];
   Bank?: {
     Coins?: number;
-    Slots?: Account["bank"]["slots"];
+    Slots?: Array<{ ItemId?: string; Qty?: number }>;
     MaxSlots?: number;
   };
   LastSeenAt?: number;

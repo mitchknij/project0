@@ -1,18 +1,19 @@
 import { describe, expect, it } from "vitest";
+import type { ActiveCombatInput, ActiveCombatState, CombatReplayStep } from "../types";
 import { createInitialActiveCombatState } from "./activeCombat";
 import { replayCombat } from "./combatReplay";
 
 describe("replayCombat", () => {
   it("produces the same annotated event stream for the same fixed script", () => {
-    const initialState = createInitialActiveCombatState(1_000, 100, 30, 60);
-    const steps = [
+    const initialState: ActiveCombatState = createInitialActiveCombatState(1_000, 100, 30, 60);
+    const steps: CombatReplayStep[] = [
       { timestamp: 1_100, commands: [{ kind: "SelectTarget" as const, targetId: "slime_1" }] },
       { timestamp: 1_200, commands: [{ kind: "TriggerSkill" as const, skillId: "delayed_bolt" }] },
       { timestamp: 2_400, commands: [] },
       { timestamp: 3_000, commands: [] }
     ];
 
-    const createInput = (state: typeof initialState, step: (typeof steps)[number]) => ({
+    const createInput = (state: ActiveCombatState, step: CombatReplayStep): ActiveCombatInput => ({
       timestamp: step.timestamp,
       commandQueue: step.commands,
       canFight: true,

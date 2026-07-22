@@ -1,4 +1,4 @@
-import type { DropEntry, DropItem, DropTable, ItemStack, WeightedSlot } from "../types";
+import type { DropEntry, DropTable, ItemStack, WeightedSlot } from "../types";
 
 const RARE_ACCESS_FACTOR = 0.2;
 const NOTHING_FLOOR = 0.5;

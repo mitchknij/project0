@@ -1,11 +1,6 @@
 name: Deploy IdleCloud Web
 
 on:
-  push:
-    branches: [main, master]
-    paths:
-      - "webapp/**"
-      - ".github/workflows/deploy-idlecloud-web.yml"
   workflow_dispatch:
     inputs:
       base_path:
