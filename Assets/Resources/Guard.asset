@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a090a5df6d4f22a5920c8f5a8d7e31, type: 3}
+  m_Name: Guard
+  stableId: guard
+  displayName: Guard
+  description: Brace for five seconds, gaining 8 temporary defense.
+  element: 0
+  mechanic: 4
+  cooldownMilliseconds: 12000
+  damageMultiplier: 0
+  aoeColor: 6728447
+  priority: 2
+  rangePixels: 0
+  aoeRadiusPixels: 0
+  projectileSpeed: 0
+  projectileRadius: 0
+  targeting: 1
+  minimumAutoTargets: 1
+  autoEnabled: 0
+  radiusWorldUnits: 0
+  modifierProperty: 0
+  modifierOperation: 0
+  modifierMagnitude: 8
+  modifierDurationTicks: 100
+  timing: 0
+  impactDelayTicks: 0
+  prerequisiteSkillId: 
+  branchId: Survival
+  tier: 1
+  skillPointCost: 0
+  inflicts: []
+  allowedClasses:
+  - 0
+  - 1
+  - 2
+  - 3

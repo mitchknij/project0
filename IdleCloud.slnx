@@ -1,0 +1,11 @@
+﻿<Solution>
+  <Project Path="IdleCloud.Core.csproj" />
+  <Project Path="IdleCloud.View.csproj" />
+  <Project Path="IdleCloud.Data.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="IdleCloud.UI.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="IdleCloud.Tests.EditMode.csproj" />
+  <Project Path="IdleCloud.Managers.csproj" />
+  <Project Path="IdleCloud.Tests.PlayMode.csproj" />
+</Solution>

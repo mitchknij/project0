@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e99601da4634bfebdbd2fef0a2e7c31, type: 3}
+  m_Name: MapSceneCatalog
+  m_EditorClassIdentifier: IdleCloud.View::IdleCloud.View.MapSceneCatalog
+  entries:
+  - mapId: grass_1
+    scenePath: Assets/Scenes/Maps/Grasslands_1.unity
+    defaultSpawnId: default
+  - mapId: grass_2
+    scenePath: Assets/Scenes/Maps/Grasslands_2.unity
+    defaultSpawnId: default
+  - mapId: grass_3
+    scenePath: Assets/Scenes/Maps/Grasslands_3 .unity
+    defaultSpawnId: default
+  - mapId: rock_1
+    scenePath: Assets/Scenes/Maps/Cave_1.unity
+    defaultSpawnId: default
+  - mapId: rock_2
+    scenePath: Assets/Scenes/Maps/Cave_2.unity
+    defaultSpawnId: default
+  - mapId: rock_3
+    scenePath: Assets/Scenes/Maps/Cave_3.unity
+    defaultSpawnId: default
+  - mapId: dessert_1
+    scenePath: Assets/Scenes/Maps/Dessert_1.unity
+    defaultSpawnId: default
+  - mapId: dessert_2
+    scenePath: Assets/Scenes/Maps/Dessert_2.unity
+    defaultSpawnId: default
+  - mapId: dessert_3
+    scenePath: Assets/Scenes/Maps/Dessert_3.unity
+    defaultSpawnId: default
+  - mapId: factory_1
+    scenePath: Assets/Scenes/Maps/Factory_1.unity
+    defaultSpawnId: default
+  - mapId: factory_2
+    scenePath: Assets/Scenes/Maps/Factory_2.unity
+    defaultSpawnId: default
+  - mapId: factory_3
+    scenePath: Assets/Scenes/Maps/Factory_3.unity
+    defaultSpawnId: default
+  - mapId: lava_1
+    scenePath: Assets/Scenes/Maps/Lava_1.unity
+    defaultSpawnId: default
+  - mapId: lava_2
+    scenePath: Assets/Scenes/Maps/Lava_2.unity
+    defaultSpawnId: default
+  - mapId: lava_3
+    scenePath: Assets/Scenes/Maps/Lava_3.unity
+    defaultSpawnId: default

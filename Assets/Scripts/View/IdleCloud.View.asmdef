@@ -1,0 +1,21 @@
+{
+    "name": "IdleCloud.View",
+    "rootNamespace": "IdleCloud.View",
+    "references": [
+        "IdleCloud.Core",
+        "IdleCloud.Data",
+        "IdleCloud.Managers",
+        "Unity.TextMeshPro",
+        "Unity.InputSystem",
+        "SuperTiled2Unity"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

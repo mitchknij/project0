@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a090a5df6d4f22a5920c8f5a8d7e31, type: 3}
+  m_Name: GroundSmash
+  stableId: ground_smash
+  displayName: Shatterstep
+  description: Shatters your tile and its four cardinal neighbours for physical damage.
+  element: 0
+  mechanic: 1
+  cooldownMilliseconds: 8000
+  damageMultiplier: 2.2
+  aoeColor: 16746564
+  priority: 2
+  rangePixels: 80
+  aoeRadiusPixels: 0
+  projectileSpeed: 0
+  projectileRadius: 0
+  targeting: 6
+  minimumAutoTargets: 2
+  tilePattern:
+    PatternKind: 1
+    Size: 1
+    CustomOffsets: []
+    FloorPolicy: 0
+    MaxTargets: 0
+  autoEnabled: 1
+  radiusWorldUnits: 0
+  modifierProperty: 0
+  modifierOperation: 0
+  modifierMagnitude: 0
+  modifierDurationTicks: 0
+  timing: 0
+  impactDelayTicks: 0
+  prerequisiteSkillId: power_strike
+  branchId: Power
+  tier: 2
+  skillPointCost: 1
+  inflicts: []
+  allowedClasses:
+  - 0
+  - 1
+  - 2
+  - 3

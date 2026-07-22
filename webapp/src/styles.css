@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Chivo+Mono:wght@400;600&family=Manrope:wght@400;600;700&display=swap");
+
+:root {
+  --sand: #f6edd7;
+  --clay: #e2c39e;
+  --ink: #1f2a30;
+  --forest: #2d6a4f;
+  --moss: #5f8f3a;
+  --sun: #f7b267;
+  --card: rgba(255, 250, 240, 0.86);
+  --shadow: rgba(31, 42, 48, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 20%, #fffbe9 0%, #f6edd7 40%, #ead9bb 100%);
+}
+
+.page-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.ambient {
+  position: absolute;
+  filter: blur(2px);
+  opacity: 0.5;
+}
+
+.ambient-a {
+  width: 34rem;
+  height: 34rem;
+  left: -8rem;
+  top: -8rem;
+  background: radial-gradient(circle, rgba(247, 178, 103, 0.45), rgba(247, 178, 103, 0));
+}
+
+.ambient-b {
+  width: 30rem;
+  height: 30rem;
+  right: -6rem;
+  bottom: -10rem;
+  background: radial-gradient(circle, rgba(95, 143, 58, 0.4), rgba(95, 143, 58, 0));
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  width: min(980px, calc(100% - 2rem));
+  margin: 1rem auto 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  border: 2px solid rgba(31, 42, 48, 0.1);
+  background: var(--card);
+  border-radius: 1.1rem;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.hero {
+  animation: rise 500ms ease-out;
+}
+
+.hero h1 {
+  margin: 0.3rem 0 0.5rem;
+  font-family: "Alegreya", serif;
+  font-size: clamp(1.4rem, 3.8vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--forest);
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.split {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+h2 {
+  margin: 0 0 0.45rem;
+  font-family: "Alegreya", serif;
+}
+
+h3 {
+  margin: 0 0 0.25rem;
+  font-family: "Alegreya", serif;
+  font-size: 1.04rem;
+}
+
+p {
+  margin: 0.35rem 0;
+}
+
+.mono {
+  font-family: "Chivo Mono", monospace;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.58rem 0.9rem;
+  background: linear-gradient(120deg, var(--forest), var(--moss));
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid rgba(31, 42, 48, 0.22);
+  color: var(--ink);
+}
+
+.report-item {
+  border-top: 1px solid rgba(31, 42, 48, 0.12);
+  padding-top: 0.65rem;
+  margin-top: 0.65rem;
+}
+
+.log-box {
+  margin-top: 0.7rem;
+  max-height: 12rem;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(31, 42, 48, 0.14);
+  border-radius: 0.7rem;
+  padding: 0.6rem;
+}
+
+.log-box p {
+  margin: 0.3rem 0;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
