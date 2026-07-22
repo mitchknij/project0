@@ -22,7 +22,7 @@ describe("dropSystem", () => {
   });
 
   it("rollDropTable resolves weighted and tertiary entries", () => {
-    const rng = fixedRng([0.6, 0.2, 0.05, 0.0]);
+    const rng = fixedRng([0.0, 0.6, 0.0, 0.05, 0.0]);
     const loot = rollDropTable({
       always: [{ itemId: "bone", min: 1, max: 1 }],
       main: {

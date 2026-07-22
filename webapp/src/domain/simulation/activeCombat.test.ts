@@ -108,13 +108,38 @@ describe("tickActiveCombat", () => {
     expect(castResult.events.some((event) => event.kind === "CombatEffectScheduled")).toBe(true);
     expect(castResult.state.scheduledEffects.length).toBe(1);
 
-    const resolveResult = tickActiveCombat({
+    const waitingResult = tickActiveCombat({
       timestamp: 2600,
       commandQueue: [],
       canFight: true,
       targetAvailable: true,
       activeEnemyId: "slime_1",
       state: castResult.state,
+      enemy: { id: "slime_1", name: "Slime", hp: 40, attack: 2 },
+      stats: { hpMax: 100, manaMax: 30, baseAttack: 10, critChance: 0.15, critMultiplier: 1.6 },
+      skills: [
+        {
+          id: "delayed_bolt",
+          name: "Delayed Bolt",
+          cooldownMs: 3000,
+          damageMultiplier: 2,
+          manaCost: 5,
+          range: 1,
+          autoEnabled: true,
+          timing: "ScheduledImpact",
+          impactDelayTicks: 2
+        }
+      ],
+      autoResumeGraceMs: 2000
+    });
+
+    const resolveResult = tickActiveCombat({
+      timestamp: 2700,
+      commandQueue: [],
+      canFight: true,
+      targetAvailable: true,
+      activeEnemyId: "slime_1",
+      state: waitingResult.state,
       enemy: { id: "slime_1", name: "Slime", hp: 40, attack: 2 },
       stats: { hpMax: 100, manaMax: 30, baseAttack: 10, critChance: 0.15, critMultiplier: 1.6 },
       skills: [

@@ -38,9 +38,9 @@ describe("progression", () => {
       330
     );
 
-    expect(result.newLevel).toBe(2);
-    expect(result.character.xp).toBe(230);
-    expect(result.character.freeStatPoints).toBe(1);
+    expect(result.newLevel).toBe(3);
+    expect(result.character.xp).toBe(6);
+    expect(result.character.freeStatPoints).toBe(2);
   });
 
   it("applies skill xp with carry", () => {

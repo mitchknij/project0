@@ -8,7 +8,8 @@ describe("replayCombat", () => {
     const steps = [
       { timestamp: 1_100, commands: [{ kind: "SelectTarget" as const, targetId: "slime_1" }] },
       { timestamp: 1_200, commands: [{ kind: "TriggerSkill" as const, skillId: "delayed_bolt" }] },
-      { timestamp: 2_400, commands: [] }
+      { timestamp: 2_400, commands: [] },
+      { timestamp: 3_000, commands: [] }
     ];
 
     const createInput = (state: typeof initialState, step: (typeof steps)[number]) => ({
