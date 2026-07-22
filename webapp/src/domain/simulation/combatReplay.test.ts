@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import type { ActiveCombatInput, ActiveCombatState, CombatReplayStep } from "../types";
+import type { ActiveCombatInput, ActiveCombatState } from "../types";
 import { createInitialActiveCombatState } from "./activeCombat";
-import { replayCombat } from "./combatReplay";
+import { replayCombat, type CombatReplayStep } from "./combatReplay";
 
 describe("replayCombat", () => {
   it("produces the same annotated event stream for the same fixed script", () => {
