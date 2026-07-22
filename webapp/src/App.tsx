@@ -119,7 +119,7 @@ export function App() {
                 <article className="report-item" key={entry.characterId}>
                   <h3>{entry.characterName}</h3>
                   <p>
-                    {entry.kind} -> actions {entry.actions}, xp +{entry.xpGained}, levels +{entry.levelsGained}, coins +{entry.coinsGained}
+                    {entry.kind} {"→"} actions {entry.actions}, xp +{entry.xpGained}, levels +{entry.levelsGained}, coins +{entry.coinsGained}
                   </p>
                   <p>
                     Loot: {entry.loot.length === 0 ? "none" : entry.loot.map((loot) => `${loot.itemId} x${loot.qty}`).join(", ")}
