@@ -5,7 +5,6 @@ on:
     branches:
       - main
       - master
-  # optional manual trigger:
   workflow_dispatch:
 
 permissions:
@@ -30,7 +29,6 @@ jobs:
         run: |
           if [ -f package.json ]; then
             npm ci
-            # run build only if there's a build script defined
             if node -e "try{const p=require('./package.json'); process.exit(p.scripts && p.scripts.build ? 0 : 1);}catch(e){process.exit(1)}"; then
               npm run build
             fi
@@ -39,7 +37,6 @@ jobs:
       - name: Detect publish directory
         id: publish
         run: |
-          # common build output folders: build, dist, public
           if [ -d "build" ]; then echo "dir=build" >> "$GITHUB_OUTPUT"
           elif [ -d "dist" ]; then echo "dir=dist" >> "$GITHUB_OUTPUT"
           elif [ -d "public" ]; then echo "dir=public" >> "$GITHUB_OUTPUT"
