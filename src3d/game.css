@@ -605,7 +605,7 @@ html, body {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, rgba(5, 9, 10, .15), rgba(5, 9, 10, .72)),
-    url('/assets/generated/ashen-road-overworld.png') center / cover;
+    url('./assets/generated/ashen-road-overworld.png') center / cover;
   filter: saturate(.7) brightness(.62);
 }
 

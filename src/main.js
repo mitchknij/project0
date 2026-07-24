@@ -180,9 +180,9 @@ document.getElementById('clear-log').addEventListener('click', () => commit({ ..
 class ExpeditionScene extends Phaser.Scene {
   constructor(){ super('ExpeditionScene'); this.viewObjects=[]; }
   preload(){
-    this.load.image('overworld-art','/assets/generated/ashen-road-overworld.png');
-    this.load.image('mine-arena-art','/assets/generated/mine-arena.png');
-    this.load.image('character-lineup','/assets/generated/character-lineup.png');
+    this.load.image('overworld-art','./assets/generated/ashen-road-overworld.png');
+    this.load.image('mine-arena-art','./assets/generated/mine-arena.png');
+    this.load.image('character-lineup','./assets/generated/character-lineup.png');
   }
   create(){
     this.cameras.main.setBackgroundColor('#0d1519');

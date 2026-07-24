@@ -1720,12 +1720,12 @@ async function loadProductionAssets() {
       statueAsset,
       groundTexture
     ] = await Promise.all([
-      loadContainer(app, 'Mara modular ranger', '/assets/models/quaternius/characters/female-ranger-animated.glb'),
-      loadContainer(app, 'Gravebound Warrior', '/assets/models/kaykit/skeletons/gravebound-warrior.glb'),
-      loadContainer(app, 'Gothic arch', '/assets/models/environment/gothic-arch.glb'),
-      loadContainer(app, 'Overgrown wall', '/assets/models/environment/overgrown-wall.glb'),
-      loadContainer(app, 'Stag statue', '/assets/models/environment/stag-statue.glb'),
-      loadTexture(app, 'Gloamwood ground', '/assets/textures/gloamwood-ground-v1.png')
+      loadContainer(app, 'Mara modular ranger', './assets/models/quaternius/characters/female-ranger-animated.glb'),
+      loadContainer(app, 'Gravebound Warrior', './assets/models/kaykit/skeletons/gravebound-warrior.glb'),
+      loadContainer(app, 'Gothic arch', './assets/models/environment/gothic-arch.glb'),
+      loadContainer(app, 'Overgrown wall', './assets/models/environment/overgrown-wall.glb'),
+      loadContainer(app, 'Stag statue', './assets/models/environment/stag-statue.glb'),
+      loadTexture(app, 'Gloamwood ground', './assets/textures/gloamwood-ground-v1.png')
     ]);
 
     const [villageKit, natureKit] = await Promise.all([
@@ -1838,7 +1838,7 @@ function treeMaterialTint(modelName, materialName) {
 async function loadNamedKit(folder, names) {
   const loaded = await Promise.all(names.map(async (name) => [
     name,
-    await loadContainer(app, name, `/assets/models/quaternius/${folder}/${name}.glb`)
+    await loadContainer(app, name, `./assets/models/quaternius/${folder}/${name}.glb`)
   ]));
   return new Map(loaded);
 }
