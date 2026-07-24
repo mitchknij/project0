@@ -1,0 +1,15 @@
+[
+  {
+    "id":"mine_approach",
+    "name":"Abandoned Mine Settlement",
+    "nodes":[
+      { "id":"ashen_gate", "type":"story", "name":"The Ashen Gate", "description":"The settlement gate hangs open. Something has dragged the warning bell underground." },
+      { "id":"ore_gallery", "type":"resource", "resource":"ore", "amount":4, "name":"Shallow Ore Gallery", "description":"A workable vein remains beneath the soot." },
+      { "id":"hollow_crew", "type":"combat", "enemyId":"hollow_worker", "name":"The Hollow Crew", "description":"Dead miners repeat their final shift." },
+      { "id":"timber_store", "type":"resource", "resource":"wood", "amount":3, "name":"Collapsed Timber Store", "description":"Dry supports can be salvaged for the refuge." },
+      { "id":"sealed_shrine", "type":"optional", "enemyId":"mine_rat", "name":"Sealed Shrine", "description":"A side tunnel bears an old occult seal. Entering promises treasure and danger." },
+      { "id":"survivors_camp", "type":"camp", "name":"Survivor's Camp", "description":"An abandoned camp offers a moment to recover before the overseer's chamber." },
+      { "id":"overseers_chamber", "type":"boss", "enemyId":"corrupted_overseer", "name":"Overseer's Chamber", "description":"The corrupted overseer guards the heart of the mine." }
+    ]
+  }
+]

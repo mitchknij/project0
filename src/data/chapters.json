@@ -1,0 +1,33 @@
+[
+  {
+    "id": "hollow_vein",
+    "chapter": "Chapter I",
+    "name": "The Hollow Vein",
+    "region": "Blackfen",
+    "objective": "Silence the corrupted mine overseer",
+    "description": "Follow the Ashen Road through an abandoned mining settlement where the dead still work beneath a soot-dark sky.",
+    "status": "available",
+    "routeId": "mine_approach",
+    "threat": 1
+  },
+  {
+    "id": "gravebloom_wood",
+    "chapter": "Chapter II",
+    "name": "Gravebloom Wood",
+    "region": "Mournwood",
+    "objective": "Find the source of the waking roots",
+    "description": "A drowned forest has begun growing toward Blackfen. Its paths will open after the Hollow Vein is broken.",
+    "status": "locked",
+    "threat": 2
+  },
+  {
+    "id": "sable_coast",
+    "chapter": "Chapter III",
+    "name": "The Sable Coast",
+    "region": "Gloamreach",
+    "objective": "Reach the lighthouse beyond the dead tide",
+    "description": "Salt-black ruins and a drowned road await beyond the forest.",
+    "status": "locked",
+    "threat": 3
+  }
+]

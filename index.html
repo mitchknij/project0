@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expedition RPG · Boundary Workshop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">PROJECT 0 · DECISION FORM</p>
+        <h1>Choose the direction</h1>
+        <p class="intro">Select the proposals that best match the game you want us to build. We will discuss the results together afterward.</p>
+      </div>
+      <div class="status-card">
+        <span id="progressLabel">0 / 6 complete</span>
+        <div class="progress"><span id="progressBar"></span></div>
+        <small>Autosaved in this browser</small>
+      </div>
+    </header>
+
+    <section class="notice">
+      <strong>How to use this:</strong> Choose one answer for each question. For the PoE-inspired qualities, choose exactly three. The final section asks which features we should leave out of the first version.
+    </section>
+
+    <div id="sections"></div>
+
+    <section class="summary-panel">
+      <div class="summary-heading">
+        <div>
+          <p class="eyebrow">LIVE OUTPUT</p>
+          <h2>Your selected answers</h2>
+        </div>
+        <span id="summaryState" class="pill">Draft</span>
+      </div>
+      <div id="summary" class="summary-empty">Make your first selection to start shaping the charter.</div>
+      <div class="actions">
+        <button id="lockButton" class="primary">Finish selections</button>
+        <button id="exportButton" class="secondary">Copy answers as file</button>
+        <button id="resetButton" class="ghost">Reset</button>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

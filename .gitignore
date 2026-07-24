@@ -1,0 +1,4 @@
+﻿??node_modules/
+
+vendor/quaternius/requested-packs/*.zip
+node_modules

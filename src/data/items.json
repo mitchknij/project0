@@ -1,0 +1,9 @@
+[
+  { "id":"rusted_blade", "name":"Rusted Blade", "slot":"weapon", "rarity":"common", "power":3, "effect":"A dependable edge." },
+  { "id":"miners_ward", "name":"Miner's Ward", "slot":"helmet", "rarity":"uncommon", "power":2, "effect":"Reduce hazard damage." },
+  { "id":"ember_lens", "name":"Ember Lens", "slot":"gadget", "rarity":"rare", "power":3, "effect":"Ember Bolt burns longer." },
+  { "id":"surveyors_charm", "name":"Surveyor's Charm", "slot":"accessory", "rarity":"uncommon", "power":2, "effect":"Reveal resource-rich branches." },
+  { "id":"ashen_hook", "name":"Overseer's Ashen Hook", "slot":"weapon", "rarity":"rare", "power":9, "effect":"Basic strikes pull weakened targets forward." },
+  { "id":"veinward_plate", "name":"Veinward Plate", "slot":"armor", "rarity":"rare", "power":7, "effect":"Gain guard after gathering ore." },
+  { "id":"lantern_of_cinders", "name":"Lantern of Cinders", "slot":"gadget", "rarity":"epic", "power":8, "effect":"Every third ability ignites all enemies." }
+]

@@ -1,0 +1,8 @@
+{
+  "id": "hero_mara",
+  "name": "Mara",
+  "level": 1,
+  "health": 100,
+  "abilities": ["basic_strike", "ember_bolt"],
+  "equipment": { "weapon": "rusted_blade", "gadget": null }
+}

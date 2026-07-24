@@ -1,0 +1,5 @@
+[
+  { "id": "guardian", "name": "The Guardian", "role": "defense", "influence": "protective_counterattacks" },
+  { "id": "occultist", "name": "The Occultist", "role": "support", "influence": "status_duration" },
+  { "id": "scavenger", "name": "The Scavenger", "role": "ranged", "influence": "resource_find_chance" }
+]

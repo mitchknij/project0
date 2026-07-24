@@ -1,0 +1,5 @@
+[
+  { "id": "mine_rat", "name": "Hollow Scavenger", "health": 38, "damage": 4 },
+  { "id": "hollow_worker", "name": "Hollow Worker", "health": 45, "damage": 7 },
+  { "id": "corrupted_overseer", "name": "Corrupted Mine Overseer", "health": 180, "damage": 10, "boss": true }
+]
