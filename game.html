@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#090c0d" />
+  <meta name="description" content="Ashen Road, a touch-first gothic isometric expedition RPG." />
+  <title>Ashen Road · PlayCanvas Prototype</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  <script type="module" crossorigin src="./assets/game-BdUKGv04.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/game-CDsEmfr0.css">
+</head>
+<body>
+  <canvas id="application-canvas" aria-label="Ashen Road playable world"></canvas>
+
+  <section id="campaign-map" class="campaign-map" aria-label="Expedition route map">
+    <div class="campaign-map-art"></div>
+    <div class="campaign-map-shell glass">
+      <header>
+        <div>
+          <span class="eyebrow">THE ASHEN ROAD · CAMPAIGN</span>
+          <h1>Choose an expedition</h1>
+        </div>
+        <button id="map-close" type="button" aria-label="Close route map">×</button>
+      </header>
+      <p>Choose a route, inspect its risk and rewards, then confirm deployment into the rendered world.</p>
+      <div id="route-list" class="route-list"></div>
+      <div id="route-detail" class="route-detail">
+        <span class="eyebrow">SELECT A ROUTE</span>
+        <strong>No expedition selected</strong>
+        <small>Main routes unlock optional resource and lore branches.</small>
+      </div>
+      <button id="route-confirm" class="route-confirm" type="button" disabled>CONFIRM EXPEDITION</button>
+    </div>
+  </section>
+
+  <div class="hud" aria-live="polite">
+    <header class="zone-panel glass">
+      <span class="eyebrow" id="zone-label">CHAPTER I · THE HOLLOW VEIN</span>
+      <strong id="zone-title">Gloamwood Verge</strong>
+      <span id="objective">Clear the blighted hunting grounds</span>
+    </header>
+
+    <section class="resource-panel glass" aria-label="Gathered resources">
+      <span class="resource-chip ore"><i></i>ORE <strong id="resource-ore">0</strong></span>
+      <span class="resource-chip wood"><i></i>WOOD <strong id="resource-wood">0</strong></span>
+      <span class="resource-chip herb"><i></i>HERBS <strong id="resource-herb">0</strong></span>
+      <span class="resource-chip essence"><i></i>ESSENCE <strong id="resource-essence">0</strong></span>
+    </section>
+
+    <section class="hero-panel glass">
+      <div class="portrait">M</div>
+      <div class="hero-copy">
+        <span class="eyebrow">MARA · WAYFARER</span>
+        <div class="health-track"><span id="health-fill"></span></div>
+        <div class="focus-track"><span id="focus-fill"></span></div>
+        <small><span id="health-value">100 / 100</span> · <span id="focus-value">100 focus</span> · <span id="loot-value">0 shards</span></small>
+      </div>
+    </section>
+
+    <section class="controls glass">
+      <button id="auto-toggle" type="button" aria-pressed="false">
+        <span class="auto-rune">A</span>
+        <span><small>AUTO COMBAT</small><strong id="auto-label">OFF</strong></span>
+      </button>
+      <button id="inventory-toggle" type="button" aria-expanded="false" aria-controls="inventory-panel">
+        <span class="pack-rune">P</span>
+        <span><small>FIELD PACK</small><strong><span id="inventory-count">0</span> / 18</strong></span>
+      </button>
+      <button id="refuge-toggle" type="button" aria-expanded="false" aria-controls="refuge-panel">
+        <span class="refuge-rune">R</span>
+        <span><small>WARDEN REFUGE</small><strong>RETURN</strong></span>
+      </button>
+      <button id="map-toggle" type="button" aria-expanded="false" aria-controls="campaign-map">
+        <span class="auto-rune">M</span>
+        <span><small>EXPEDITIONS</small><strong>MAP</strong></span>
+      </button>
+      <button id="sound-toggle" type="button" aria-pressed="true">
+        <span class="auto-rune">♪</span>
+        <span><small>AUDIO</small><strong id="sound-label">ON</strong></span>
+      </button>
+    </section>
+
+    <section class="ability-panel glass" aria-label="Ability priorities">
+      <header>
+        <span class="eyebrow">AUTO PRIORITY</span>
+        <small>Tap skill to cast</small>
+      </header>
+      <div id="ability-list"></div>
+    </section>
+
+    <section id="inventory-panel" class="inventory-panel glass" aria-label="Inventory and equipment" hidden>
+      <header>
+        <div>
+          <span class="eyebrow">WAYFARER LOADOUT</span>
+          <strong>Inventory & Equipment</strong>
+        </div>
+        <button id="inventory-close" type="button" aria-label="Close inventory">×</button>
+      </header>
+      <div id="equipment-slots" class="equipment-slots"></div>
+      <div class="inventory-heading">
+        <span>FIELD PACK</span>
+        <small>Tap an item to equip</small>
+      </div>
+      <div id="inventory-grid" class="inventory-grid"></div>
+      <div id="inventory-empty" class="inventory-empty">Defeat enemies to recover equipment.</div>
+    </section>
+
+    <section id="refuge-panel" class="refuge-panel glass" aria-label="Warden Refuge" hidden>
+      <header>
+        <div>
+          <span class="eyebrow">SAFE GROUND · BLACKSMITH</span>
+          <strong>Warden Refuge</strong>
+        </div>
+        <button id="refuge-close" type="button" aria-label="Close refuge">×</button>
+      </header>
+
+      <div class="refuge-quest">
+        <span class="eyebrow">THE HOLLOW VEIN</span>
+        <strong id="quest-title">Provision the refuge</strong>
+        <p id="quest-copy">Gather Mooniron ore and Gloamwood timber.</p>
+        <div class="quest-track"><span id="quest-fill"></span></div>
+      </div>
+
+      <div class="town-stock">
+        <span>STORED</span>
+        <strong><i class="ore-dot"></i><b id="town-ore">0</b> ore</strong>
+        <strong><i class="wood-dot"></i><b id="town-wood">0</b> wood</strong>
+        <strong><i class="herb-dot"></i><b id="town-herb">0</b> herbs</strong>
+        <strong><i class="essence-dot"></i><b id="town-essence">0</b> essence</strong>
+      </div>
+
+      <div id="blacksmith-card" class="blacksmith-card">
+        <div>
+          <span class="eyebrow">TOWN UPGRADE</span>
+          <strong id="blacksmith-name">Cold Forge</strong>
+          <small id="blacksmith-status">Dormant · requires 6 ore and 4 wood</small>
+        </div>
+        <button id="blacksmith-upgrade" type="button">RESTORE</button>
+      </div>
+
+      <div class="crafting-heading">
+        <span>FORGE RECIPES</span>
+        <small>Crafted equipment enters the field pack</small>
+      </div>
+      <div id="crafting-list" class="crafting-list"></div>
+
+      <div class="companion-heading">
+        <span>ACTIVE COMPANION</span>
+        <small>Companions can only be swapped in the refuge</small>
+      </div>
+      <div id="companion-list" class="companion-list"></div>
+
+      <div id="recovery-card" class="recovery-card" hidden>
+        <div>
+          <span class="eyebrow">LOST EXPEDITION CACHE</span>
+          <strong id="recovery-resources">No materials</strong>
+          <small id="recovery-time">24h remaining</small>
+        </div>
+        <button id="recover-cache" type="button">RECOVER</button>
+      </div>
+
+      <footer class="save-tools">
+        <button id="export-progress" type="button">EXPORT SAVE</button>
+        <label for="import-progress">IMPORT SAVE</label>
+        <input id="import-progress" type="file" accept=".json,application/json" />
+        <small id="save-status">Progress autosaves locally</small>
+      </footer>
+    </section>
+
+    <div id="target-card" class="target-card glass" hidden>
+      <span class="eyebrow" id="target-kind">BLIGHTED</span>
+      <strong id="target-name">Gravebound Warrior</strong>
+      <div class="enemy-health"><span id="enemy-health-fill"></span></div>
+    </div>
+
+    <div id="gather-card" class="gather-card glass" hidden>
+      <span class="eyebrow" id="gather-state">APPROACHING</span>
+      <strong id="gather-name">Mooniron Ore</strong>
+      <div class="gather-track"><span id="gather-fill"></span></div>
+    </div>
+
+    <div id="expedition-banner" class="expedition-banner glass" hidden>
+      <span class="eyebrow" id="expedition-state">BOSS AVAILABLE</span>
+      <strong id="expedition-copy">The Corrupted Overseer waits in the northern hollow.</strong>
+    </div>
+
+    <aside id="tutorial-card" class="tutorial-card glass">
+      <span class="eyebrow">WAYFARER TRAINING</span>
+      <strong id="tutorial-next">Visit Warden Refuge</strong>
+      <small id="tutorial-progress">0 / 9 learned</small>
+    </aside>
+
+    <section id="boss-reward-panel" class="boss-reward-panel glass" aria-label="Choose an Overseer reward" hidden>
+      <span class="eyebrow">OVERSEER SPOILS · CHOOSE ONE</span>
+      <h2>The Hollow Vein yields</h2>
+      <p>Select one build-changing item. Your choice is permanent and unlocks extraction.</p>
+      <div id="boss-reward-list" class="boss-reward-list"></div>
+    </section>
+
+    <section id="defeat-panel" class="defeat-panel glass" aria-label="Expedition defeated" hidden>
+      <span class="eyebrow">EXPEDITION ENDED</span>
+      <h2>Mara was driven from the Hollow Vein</h2>
+      <p id="defeat-copy">Gathered resources were left behind in a recoverable cache.</p>
+      <div id="defeat-resources" class="defeat-resources"></div>
+      <button id="return-after-defeat" type="button">RETURN TO WARDEN REFUGE</button>
+    </section>
+
+    <div class="command-hint glass" id="command-hint">
+      <span class="mouse-icon"></span>
+      Tap terrain to move · tap enemies or resource nodes to interact
+    </div>
+
+    <div id="status-toast" class="status-toast">Entering Gloamwood Verge</div>
+  </div>
+
+</body>
+</html>
