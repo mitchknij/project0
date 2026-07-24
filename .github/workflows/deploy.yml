@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node (for JS projects)
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install & build (if package.json exists and has a build script)
