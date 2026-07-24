@@ -8,7 +8,6 @@ Requirements: Node.js 24 or newer.
 
 ```powershell
 npm install
-npm run build
 npm start
 ```
 
