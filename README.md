@@ -4,7 +4,7 @@ Ashen Road is the locally deployable PlayCanvas vertical slice for Project 0: a 
 
 ## Play locally
 
-Requirements: Node.js 20 or newer.
+Requirements: Node.js 24 or newer.
 
 ```powershell
 npm install
