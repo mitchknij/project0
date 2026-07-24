@@ -562,7 +562,7 @@ setTimeout(() => { ui.hint.style.opacity = '0.28'; }, 8500);
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
-    void navigator.serviceWorker.register('/service-worker.js');
+    void navigator.serviceWorker.register(new URL('./service-worker.js', location.href));
   });
 }
 
