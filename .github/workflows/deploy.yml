@@ -1,0 +1,52 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  pages: write
+  id-token: write
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node (for JS projects)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install & build (if package.json exists and has a build script)
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+            if node -e "try{const p=require('./package.json'); process.exit(p.scripts && p.scripts.build ? 0 : 1);}catch(e){process.exit(1)}"; then
+              npm run build
+            fi
+          fi
+
+      - name: Detect publish directory
+        id: publish
+        run: |
+          if [ -d "build" ]; then echo "dir=build" >> "$GITHUB_OUTPUT"
+          elif [ -d "dist" ]; then echo "dir=dist" >> "$GITHUB_OUTPUT"
+          elif [ -d "public" ]; then echo "dir=public" >> "$GITHUB_OUTPUT"
+          else echo "dir=." >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ${{ steps.publish.outputs.dir }}
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
